@@ -23,7 +23,7 @@ session.mount('http://', adapter)
 
 # Function to fetch movie details (with retries and error handling)
 def fetch_movie_details(movie_id, retries=3):
-    url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US"
+    url = f"###" #make sure to add ur API KEY
     try:
         response = session.get(url)
         response.raise_for_status()  # Will raise an error for 4xx/5xx responses
@@ -38,7 +38,7 @@ def fetch_movie_details(movie_id, retries=3):
             'title': title,
             'overview': overview,
             'release_date': release_date,
-            'poster': f"https://image.tmdb.org/t/p/w500/{poster_path}" if poster_path else None
+            'poster': f"###" if poster_path else None  #add poster paths
         }
     except RequestException as e:
         print(f"Error fetching movie details for movie ID {movie_id}: {e}")
